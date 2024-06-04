@@ -1,0 +1,25 @@
+<!-- Файл users_list.html -->
+{% extends 'base.html' %}
+{% block title %}Список пользователей{% endblock %}
+{% block content %}
+<table border="1" cellspacing="0">
+    <tr>
+        <th>Логин</th>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th>Номер телефона</th>
+    </tr>
+    {% for item in users_info %}
+        <tr>
+            <td><a href="users/{{ item.login }}">{{ item.login }}</a></td>
+            <td>{{ item.last_name }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.surname }}</td>
+            <td>{{ item.birth_date }}</td>
+            <td>{{ item.phone }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+httpie = "*"
+install = "*"
+ipython = "*"
+flask-migrate = "*"
+flask-sqlalchemy = "*"
+autopep8 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

@@ -1,2 +1,2 @@
 # specialist_flask2
-Flask
+Учебный проект на Flask

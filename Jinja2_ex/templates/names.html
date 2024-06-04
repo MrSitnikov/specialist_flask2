@@ -1,0 +1,9 @@
+<!-- Файл names.html -->
+{% extends 'base.html' %}
+{% block title %}Пользователи{% endblock %}
+{% block content %}
+Имя пользователя:
+{% for name in names %}
+    <p>{{ name }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- Файл table.html -->
+{% extends 'base.html' %}
+{% block title %}Таблица{% endblock %}
+{% block content %}
+<br>
+<table border="1" cellspacing="0" >
+    <thead>
+        <tr>
+            <th>Фамилия </th>
+            <th>Имя</th>
+            <th>Отчество</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for raw in tables %}
+            <tr>
+                <th>{{ raw.last_name }}</th>
+                <td>{{raw.name}}</td>
+                <td>{{raw.surname}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
