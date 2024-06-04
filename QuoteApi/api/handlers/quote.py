@@ -47,10 +47,11 @@ def create_quote(author_id):
 def edit_quote(quote_id):
     quote_data = request.json
     quote = QuoteModel.query.get(quote_id)
-    quote.text = quote_data["text"]
-    db.session.commit()
-    return quote.to_dict(), 200
-
+    if quote:
+        quote.text = quote_data["text"]
+        db.session.commit()
+        return quote.to_dict(), 200
+    return {"Error": f"Quote id={quote_id} not found"}, 404
 
 @app.route('/quotes/<int:quote_id>', methods=["DELETE"])
 def delete_quote(quote_id):
