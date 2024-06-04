@@ -37,6 +37,11 @@ def edit_author(author_id):
     return author.to_dict(), 200
 
 
-@app.route('/authors/<int:author_id>', methods=["PUT"])
-def delete_author(quote_id):
-    raise NotImplemented("Метод не реализован")
+@app.route('/authors/<int:author_id>', methods=["Delete"])
+def delete_author(author_id):
+    author = AuthorModel.query.get(author_id)
+    if author:
+        db.session.delete(author)
+        db.session.commit()
+        return author.to_dict(), 200
+    return {"Error": f"Quote id={author_id} not found"}, 404
