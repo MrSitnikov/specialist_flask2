@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-/QuoteApi/*.db
+**/*.db
 
 # C extensions
 *.so
