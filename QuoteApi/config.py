@@ -10,3 +10,4 @@ class Config:
     DEBUG = True
     PORT = 5000
     HOST = '192.168.10.43'
+    SECRET_KEY = 'supeR secret KeyS'

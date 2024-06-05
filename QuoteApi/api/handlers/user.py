@@ -1,4 +1,4 @@
-from api import app, db, request,auth
+from api import app, db, request,multi_auth
 from api.models.user import UserModel
 from api.schemas.user import user_schema, users_schema
 
@@ -16,7 +16,7 @@ def get_users():
 
 
 @app.post("/users")
-@auth.login_required
+@multi_auth.login_required
 def create_user():
     user_data = request.json
     #print('user=', auth.current_user()) #текущий пользователь
@@ -27,7 +27,7 @@ def create_user():
 
 
 @app.delete("/user/<int:user_id>")
-@auth.login_required
+@multi_auth.login_required
 def delete_user(user_id):
     user = UserModel.query.get(user_id)
     if user:

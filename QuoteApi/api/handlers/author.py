@@ -1,4 +1,4 @@
-from api import app, db, request,auth
+from api import app, db, request, multi_auth
 from api.models.author import AuthorModel
 from api.models.quote import QuoteModel
 from api.schemas.author import author_schema,authors_schema
@@ -20,7 +20,7 @@ def get_author_by_id(author_id):
 
 
 @app.route('/authors', methods=["POST"])
-@auth.login_required
+@multi_auth.login_required
 def create_author():
     author_data = request.json
     author = AuthorModel(**author_data)
@@ -30,7 +30,7 @@ def create_author():
 
 
 @app.route('/authors/<int:author_id>', methods=["PUT"])
-@auth.login_required
+@multi_auth.login_required
 def edit_author(author_id):
     author_data = request.json
     author = AuthorModel.query.get(author_id)
@@ -44,7 +44,7 @@ def edit_author(author_id):
 
 
 @app.route('/authors/<int:author_id>', methods=["Delete"])
-@auth.login_required
+@multi_auth.login_required
 def delete_author(author_id):
     author = AuthorModel.query.get(author_id)
     if author:
