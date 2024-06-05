@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 **/*.db
+ma_examples/
 
 # C extensions
 *.so

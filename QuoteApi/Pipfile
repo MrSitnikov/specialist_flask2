@@ -11,6 +11,9 @@ ipython = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 autopep8 = "*"
+flask-marshmallow = "*"
+marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [dev-packages]
 
