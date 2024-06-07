@@ -13,7 +13,7 @@ migrate = Migrate(app, db)
 
 ma = Marshmallow(app)
 basic_auth = HTTPBasicAuth()  # auth-> basic_auth
-token_auth = HTTPTokenAuth('Bearer')
+token_auth = HTTPTokenAuth('Bearer') #create new
 multi_auth = MultiAuth(basic_auth, token_auth)  # join basic_auth || token_auth
 
 
@@ -22,7 +22,7 @@ multi_auth = MultiAuth(basic_auth, token_auth)  # join basic_auth || token_auth
 def verify_token(token):
     from api.models.user import UserModel
     user = UserModel.verify_auth_token(token)
-    print(f"{user=}")
+    #print(f"{user=}")
     return user
 
 
@@ -32,5 +32,5 @@ def verify_password(username, password):
     user = UserModel.query.filter_by(username=username).first()
     if not user or not user.verify_password(password):
         return False
-    g.user = user
+    #g.user = user
     return user
